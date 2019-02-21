@@ -10,6 +10,8 @@ module.exports = {
     // where n is the number being converted to an int
     toInt: f => f(i => i + 1)(0),
 
+    // The successor to a number is a number, f(x) applied n times n(f)(x)
+    // called one more time
     successor: n => f => x => f(n(f)(x)),
 
     add: n => m => f => x => m(f)(n(f)(x)),
