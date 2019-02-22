@@ -1,0 +1,23 @@
+{
+  "name": "lambda-calculus",
+  "version": "1.0.0",
+  "description": "implementing lambda calculus",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robBowes/lambda-calculus.git"
+  },
+  "author": "Robert Bowes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robBowes/lambda-calculus/issues"
+  },
+  "homepage": "https://github.com/robBowes/lambda-calculus#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.1"
+  }
+}
