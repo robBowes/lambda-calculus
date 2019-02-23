@@ -1,15 +1,5 @@
-const numbers = require("./numbers")
-const {
-    toInt,
-    zero,
-    successor,
-    one,
-    two,
-    three,
-    four,
-    add,
-    multiply,
-    exponent
-} = numbers
+const numbers = require("./calculus")
+for (const iterator in numbers) {
+    global[iterator] = numbers[iterator]
+}
 
-setInterval(() => {}, 1 << 30)

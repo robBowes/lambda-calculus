@@ -1,17 +1,19 @@
-// Create numbers from functions. Each function gets called n times
 const 
-    zero = _ => x => x,
+    // In lambda calculus a number n is just a function called against an entity n times
+    zero = f => x => x,
     one = f => x => f(x),
     two = f => x => f(f(x)),
     three = f => x => f(f(f(x))),
     four = f => x => f(f(f(f(x)))),
-    // Apply a function that increments one n times,
-    // where n is the number being converted to an int
-    toInt = f => f(i => i + 1)(0),
-
     // The successor to a number is a number, f(x) applied n times n(f)(x)
     // called one more time
     successor = n => f => x => f(n(f)(x)),
+    five = successor(four),
+    six = successor(five),
+    seven = successor(six),
+    // Apply a function that increments one n times,
+    // where n is the number being converted to an int
+    toInt = n => n(i => i + 1)(0),
 
     add = n => m => f => x => m(f)(n(f)(x)),
 
@@ -25,7 +27,19 @@ const
 
     _if = cond => thenDo => elseDo => cond(thenDo)(elseDo),
 
-    toBool = cond => cond(true)(false)
+    _and = l => r => l(r)(l),
+
+    or = l => r => l(l)(r),
+
+    toBool = cond => cond(true)(false),
+
+    makePair = l => r => f => f(l)(r),
+
+    left = pair => pair(_true),
+
+    right = pair => pair(_false)
+
+
 
 module.exports = {
     zero,
@@ -33,6 +47,9 @@ module.exports = {
     two,
     three,
     four,
+    five,
+    six,
+    seven,
     toInt,
     successor,
     add,
@@ -42,4 +59,9 @@ module.exports = {
     _false,
     _if,
     toBool,
+    _and,
+    or,
+    makePair,
+    left,
+    right,
 }
