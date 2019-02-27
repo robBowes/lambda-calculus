@@ -43,8 +43,11 @@ const
     // nil is an empty list
     emptyList = makePair(_true)(_true),
     // returns true if passed an empty list
-    isEmpty = pair => getLeft(pair)
-
+    isEmpty = pair => getLeft(pair),
+    // a non emtpy list starts with false and has it's first element on the left of the second pair
+    head = list => getRight(getLeft(list)),
+    // the tail of a list is the right of the second pair
+    tail = list => getRight(getRight(list))
 
 
 
@@ -75,4 +78,6 @@ module.exports = {
     not,
     emptyList,
     isEmpty,
+    head,
+    tail,
 }
