@@ -26,20 +26,24 @@ const
     _false = _ => f => f,
     // if takes a bool and two more arguments and applies the bool to the arguments, returning the first if it's true or the second if it's false
     _if = cond => thenDo => elseDo => cond(thenDo)(elseDo),
-    // not takes a 
+    // not takes a conditional and returns the opposite
     not = cond => thenDo => elseDo => cond(elseDo)(thenDo),
 
     _and = l => r => l(r)(l),
 
     or = l => r => l(l)(r),
-
+    // converts a lambda conditional into a traditional boolean
     toBool = cond => cond(true)(false),
-
-    makePair = l => r => f => f(l)(r),
-
+    // makes a pair by containing a left and a right in a function
+    makePair = left => right => f => f(left)(right),
+    // gets the left membere from a pair
     getLeft = pair => pair(_true),
-
-    getRight = pair => pair(_false)
+    // gets the right membere from a pair
+    getRight = pair => pair(_false),
+    // nil is an empty list
+    emptyList = makePair(_true)(_true),
+    // returns true if passed an empty list
+    isEmpty = pair => getLeft(pair)
 
 
 
@@ -69,4 +73,6 @@ module.exports = {
     getLeft,
     getRight,
     not,
+    emptyList,
+    isEmpty,
 }

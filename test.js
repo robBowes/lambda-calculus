@@ -2,7 +2,7 @@ const lambda = require("./calculus")
 const expect = require("chai").expect
 const assert = require("chai").assert
 
-const {zero, one, two, three, four, toInt, successor, add, multiply, exponent, _true, _false, _if, toBool, _and, or, makePair, getLeft, getRight, not} = lambda
+const {zero, one, two, three, four, toInt, successor, add, multiply, exponent, _true, _false, _if, toBool, _and, or, makePair, getLeft, getRight, not, emptyList, isEmpty} = lambda
 
 const i = f => () => f
 const apply = (x, ...arr) => arr.reduce((acc, f) => f(acc), x)
@@ -26,4 +26,5 @@ describe("Lambda-calculus", () => {
     it("can create an or that is true", i(expect(apply(or(_false)(_true),toBool)).to.equal(true)))
     it("can create a pair and get the left element", i(assert.equal(apply(makePair(one)(four), getLeft, toInt), 1)))
     it("can create a pair and get the right element", i(assert.equal(apply(makePair(one)(four), getRight, toInt), 4)))
+    it("can create an empty list", i(assert.equal(apply(emptyList, isEmpty, toBool), true)))
 }) 
