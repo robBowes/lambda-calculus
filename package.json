@@ -4,7 +4,8 @@
   "description": "implementing lambda calculus",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --watch"
+    "test": "mocha --watch",
+    "repl": "node -r ./index.js"
   },
   "repository": {
     "type": "git",

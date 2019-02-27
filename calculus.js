@@ -20,12 +20,14 @@ const
     multiply = n => m => f => x => m(n(f))(x),
 
     exponent = n => m => m(n),
-
+    // true takes two arguments and always returns the first
     _true = t => _ => t,
-
+    // false takes two arguments and always returns the second
     _false = _ => f => f,
-
+    // if takes a bool and two more arguments and applies the bool to the arguments, returning the first if it's true or the second if it's false
     _if = cond => thenDo => elseDo => cond(thenDo)(elseDo),
+    // not takes a 
+    not = cond => thenDo => elseDo => cond(elseDo)(thenDo),
 
     _and = l => r => l(r)(l),
 
@@ -35,9 +37,11 @@ const
 
     makePair = l => r => f => f(l)(r),
 
-    left = pair => pair(_true),
+    getLeft = pair => pair(_true),
 
-    right = pair => pair(_false)
+    getRight = pair => pair(_false)
+
+
 
 
 
@@ -62,6 +66,7 @@ module.exports = {
     _and,
     or,
     makePair,
-    left,
-    right,
+    getLeft,
+    getRight,
+    not,
 }
